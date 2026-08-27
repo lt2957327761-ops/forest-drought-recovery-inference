@@ -1,0 +1,6 @@
+# Optional IFL reacquisition/harmonization imports.
+# Exact historical versions were not retained; no historical pins are invented.
+# NumPy and Rasterio are already specified in requirements-core.txt.
+pyogrio
+pyproj
+shapely

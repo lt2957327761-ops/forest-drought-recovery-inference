@@ -1,0 +1,30 @@
+# Audit mirror only; activity remains defined by the frozen scripts.
+software_version: 1.0.0
+random_seed: 9021009
+training_period: 2001-01/2020-12
+fixed_evaluation_period: 2021-01/2023-12
+year_2024_role: censoring_and_endpoint_status_only
+spei_scales: [D1, D3, D6]
+recovery:
+  R2_origin: month_after_drought_end
+  threshold_sd: -0.5
+  P1_consecutive_qualifying_months: 1
+  P2_consecutive_qualifying_months: 2
+random_forest:
+  n_estimators: 300
+  min_samples_leaf: 5
+  max_features: 1.0
+  bootstrap: true
+  random_state: 9021009
+hazard:
+  design_columns: 29
+  C: 1.0
+  solver: lbfgs
+  max_iter: 1000
+  class_weight: null
+  sample_weight: null
+bootstrap:
+  block_degrees: 5
+  requested_repetitions: 500
+screen_positive: "priority_A_agreement_count >= 2 OR priority_B_agreement_count >= 2"
+forest_cell_area_weight: full_grid_cell_surface_area_without_forest_fraction

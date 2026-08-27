@@ -1,0 +1,5 @@
+# Exact verified Python figure/runtime environment
+# Install requirements-core.txt first so the verified NumPy pin is shared.
+matplotlib==3.10.9
+pandas==3.0.3
+Pillow==12.2.0

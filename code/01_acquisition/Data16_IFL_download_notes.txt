@@ -1,0 +1,107 @@
+# Data 16：官方 IFL GeoPackage 一键下载脚本
+# 用法：
+# 1. 将本文件中的全部内容复制到 Windows PowerShell；
+# 2. 或把本文件扩展名改为 .ps1 后运行；
+# 3. 如你的项目路径不同，只修改下面的 $DownloadDir 一行。
+#
+# 下载内容：
+# IFL_2000.gpkg
+# IFL_2013.gpkg
+# IFL_2016.gpkg
+# IFL_2020.gpkg
+# IFL_2025.gpkg
+# Forest_zone.gpkg
+# IFL_2000-2025.pdf
+#
+# 支持断点续传：下载中断后重新运行本脚本即可。
+
+$ErrorActionPreference = "Stop"
+
+# Set NEE_DATA16_DOWNLOAD_DIR to a writable local download directory before running.
+$DownloadDir = $env:NEE_DATA16_DOWNLOAD_DIR
+if ([string]::IsNullOrWhiteSpace($DownloadDir)) { throw "Set NEE_DATA16_DOWNLOAD_DIR before running." }
+
+New-Item -ItemType Directory -Force -Path $DownloadDir | Out-Null
+
+$Files = @(
+    @{
+        Name = "IFL_2000.gpkg"
+        Url  = "https://intactforests.org/shp/IFL_2000.gpkg"
+    },
+    @{
+        Name = "IFL_2013.gpkg"
+        Url  = "https://intactforests.org/shp/IFL_2013.gpkg"
+    },
+    @{
+        Name = "IFL_2016.gpkg"
+        Url  = "https://intactforests.org/shp/IFL_2016.gpkg"
+    },
+    @{
+        Name = "IFL_2020.gpkg"
+        Url  = "https://intactforests.org/shp/IFL_2020.gpkg"
+    },
+    @{
+        Name = "IFL_2025.gpkg"
+        Url  = "https://intactforests.org/shp/IFL_2025.gpkg"
+    },
+    @{
+        Name = "Forest_zone.gpkg"
+        Url  = "https://intactforests.org/shp/Forest_zone.gpkg"
+    },
+    @{
+        Name = "IFL_2000-2025.pdf"
+        Url  = "https://intactforests.org/shp/IFL_2000-2025.pdf"
+    }
+)
+
+Write-Host ""
+Write-Host "============================================================"
+Write-Host "Data 16：开始下载官方 IFL GeoPackage"
+Write-Host "保存目录：$DownloadDir"
+Write-Host "============================================================"
+Write-Host ""
+
+foreach ($File in $Files) {
+    $OutputPath = Join-Path $DownloadDir $File.Name
+
+    Write-Host "正在下载：$($File.Name)"
+    Write-Host "保存到：$OutputPath"
+
+    # Windows 10/11 自带 curl.exe。
+    # -L：跟随跳转
+    # --fail：服务器错误时返回失败
+    # --retry：失败自动重试
+    # -C -：从已有临时文件断点续传
+    & curl.exe `
+        -L `
+        --fail `
+        --retry 8 `
+        --retry-delay 5 `
+        --connect-timeout 60 `
+        -C - `
+        -o $OutputPath `
+        $File.Url
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "下载失败：$($File.Name)，curl退出代码：$LASTEXITCODE"
+    }
+
+    $SizeMB = [Math]::Round((Get-Item $OutputPath).Length / 1MB, 2)
+    Write-Host "完成：$($File.Name)  大小：$SizeMB MB"
+    Write-Host ""
+}
+
+Write-Host "============================================================"
+Write-Host "全部下载命令执行完成。"
+Write-Host "请检查以下文件是否全部存在："
+Write-Host "============================================================"
+
+Get-ChildItem -Path $DownloadDir |
+    Select-Object Name,
+        @{Name="Size_MB"; Expression={[Math]::Round($_.Length / 1MB, 2)}},
+        LastWriteTime |
+    Format-Table -AutoSize
+
+Write-Host ""
+Write-Host "下一步：不要修改或重命名这些官方原始文件。"
+Write-Host "后续将在单独的 01 Processing 和 02 Output 文件夹中处理。"
