@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it and the related data release."
+title: "Analytical choices reshape global forest drought-recovery inference — analysis code"
+version: 1.0.0
+type: software
+authors:
+  - family-names: Liu
+    given-names: Tao
+    affiliation: "School of Architectural Engineering, Quzhou University"
+    email: 2957327761@qq.com
+  - family-names: Liu
+    given-names: Xiaozhou
+    affiliation: "School of Architectural Engineering, Quzhou University"
+repository-code: "https://github.com/lt2957327761-ops/forest-drought-recovery-inference"
+license: MIT

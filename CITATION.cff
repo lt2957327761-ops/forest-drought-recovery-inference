@@ -1,7 +1,7 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it and the related data release."
-title: "Analytical choices reshape global forest drought-recovery inference — analysis code"
-version: 1.0.0
+message: "If you use these release files, cite the matching archived software version identified by the Zenodo release record."
+title: "Analytical design shapes conclusions about global forest drought recovery — analysis code"
+version: "1.1.0"
 type: software
 authors:
   - family-names: Liu
@@ -13,3 +13,4 @@ authors:
     affiliation: "School of Architectural Engineering, Quzhou University"
 repository-code: "https://github.com/lt2957327761-ops/forest-drought-recovery-inference"
 license: MIT
+# DOI and release date must come from the actual release, not an inferred identifier.

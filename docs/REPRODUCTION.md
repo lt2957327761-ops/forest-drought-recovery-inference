@@ -1,8 +1,10 @@
 # Reproduction guide
 
+This section retains the historical full-workspace workflow. For the current EI frozen diagnostic verification, use `docs/EI_REPRODUCTION.md`; the baseline alone does not contain the later H−1/B2/Table S1 additions.
+
 ## 1. Clone repository
 
-Clone or download `forest-drought-recovery-inference`. No Git command was executed when this author-review package was assembled.
+Clone or download `forest-drought-recovery-inference`. The original v1 author-review package reported that no Git command was executed during its assembly. The current EI update uses a real read-only clone and an uncommitted local branch; see `docs/EI_REPRODUCTION.md`.
 
 ## 2. Install the appropriate environment tier
 
@@ -38,7 +40,7 @@ The Data16 script actually imports `pyogrio`, `pyproj` and `shapely` in addition
 
 ## 3. Obtain the Zenodo dataset
 
-Download and extract dataset version 1.0.0 from `https://doi.org/10.5281/zenodo.22119617` after publication. Until publication, the DOI is reserved. Do not place the archive in Git.
+Dataset version 1.0.0 is published (2026-08-28) at `https://doi.org/10.5281/zenodo.22119617`. It is the historical baseline; the subsequent EI additions are in the separate unpublished data-update candidate. Do not place data archives in Git.
 
 ## 4. Optional upstream reacquisition
 

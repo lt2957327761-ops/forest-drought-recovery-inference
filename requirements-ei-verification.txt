@@ -1,0 +1,3 @@
+# Tested artifact-verification tier; not the original scientific environment.
+numpy==2.3.5
+pyarrow==26.0.0

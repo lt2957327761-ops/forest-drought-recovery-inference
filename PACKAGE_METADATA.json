@@ -1,0 +1,23 @@
+{
+  "version": "1.1.0",
+  "status": "AUTHOR_APPROVED_RELEASE_FILES",
+  "authors": [
+    {
+      "name": "Liu, Tao",
+      "affiliation": "School of Architectural Engineering, Quzhou University"
+    },
+    {
+      "name": "Liu, Xiaozhou",
+      "affiliation": "School of Architectural Engineering, Quzhou University"
+    }
+  ],
+  "license": "MIT",
+  "title": "Analytical design shapes conclusions about global forest drought recovery — analysis code",
+  "authors_and_sharing_rights_confirmed": true,
+  "baseline_version_DOI": "10.5281/zenodo.22129070",
+  "concept_DOI": "10.5281/zenodo.22129069",
+  "historical_software_commit": "31dd78e93192e62ca359f4a8a3531f2ce0e073af",
+  "immutable_new_identity_source": "Actual Zenodo version record and actual GitHub release; never infer identifiers",
+  "scientific_results_changed": false,
+  "reproduction_scope": "Frozen-artifact verification; not a fresh end-to-end raw-to-paper rerun"
+}
