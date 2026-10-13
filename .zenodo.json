@@ -1,0 +1,17 @@
+{
+  "title": "Analytical design shapes conclusions about global forest drought recovery — analysis code",
+  "version": "1.1.0",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "mit",
+  "language": "eng",
+  "creators": [
+    {"name": "Liu, Tao", "affiliation": "School of Architectural Engineering, Quzhou University"},
+    {"name": "Liu, Xiaozhou", "affiliation": "School of Architectural Engineering, Quzhou University"}
+  ],
+  "description": "Author-approved analysis code supporting Analytical design shapes conclusions about global forest drought recovery (Ecological Indicators manuscript). Version 1.1.0 retains the v1.0.0 scientific baseline and adds frozen-artifact verification for the strict H-minus-1 monthly-hazard scoring diagnostic, 19 numerical-group AUC and evidence-grade comparisons, Supplementary Table S1, and the current six main and four supplementary figure source inputs. Original enrichment ratios, confidence intervals, event definitions, sample sizes and frozen model identities are unchanged. No new fitting, tuning, bootstrap or global raw-to-paper computation was performed for this release. Historical title: Analytical choices reshape global forest drought-recovery inference. See README and EI_REPRODUCTION for dependencies, entry points, scientific boundaries and reproduction scope.",
+  "related_identifiers": [
+    {"identifier": "10.5281/zenodo.22119616", "relation": "isSupplementTo", "resource_type": "dataset"}
+  ],
+  "keywords": ["forest drought", "recovery definitions", "kNDVI", "SPEI", "information boundaries", "frozen-artifact verification"]
+}
